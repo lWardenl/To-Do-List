@@ -46,20 +46,37 @@ h1 {
 }
 
 /* Task Management Section */
-
 .task-manager-section {
+  width: 100%;
+}
+
+.task-manager-section > h2 {
   text-align: center;
 }
 
-#tasks {
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
   margin-top: 25px;
+  max-width: 800px;
+  width: 100%;
+}
+.task-text {
+  border: 2px solid white;
+  border-radius: 5px;
+  color: rgb(40, 40, 40);
+  background: none;
+  margin-left: 15px;
+  width: 130%;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .action-btn {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 25px;
 }
