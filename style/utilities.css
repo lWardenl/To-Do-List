@@ -15,9 +15,10 @@ img {
 ul {
   list-style: none;
 }
+
 body {
   background-color: #21d4fd;
-  background-image: linear-gradient(180deg, #21d4fd 0%, #b721ff 100%);
+  background-image: linear-gradient(180deg, #8021fd 0%, #b721ff 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   display: flex;
@@ -25,4 +26,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  color: rgb(28, 28, 28);
+}
+
+::placeholder {
+  color: rgb(40, 40, 40);
 }
