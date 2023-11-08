@@ -29,54 +29,22 @@ h1 {
   background: none;
   border: 2px solid white;
   border-radius: 5px;
-  width: 300px;
-  height: 50px;
   width: 100px;
   height: 30px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
 }
-#task-submit:hover {
-  opacity: 0.8;
-}
-
-#task-submit:active {
-  opacity: 0.5;
-}
 
 /* Task Management Section */
-.task-manager-section {
-  width: 100%;
-}
 
-.task-manager-section > h2 {
-  text-align: center;
-}
-
-.task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: none;
-  margin-top: 25px;
-  max-width: 800px;
-  width: 100%;
-}
 .task-text {
+  background: none;
   border: 2px solid white;
   border-radius: 5px;
-  color: rgb(40, 40, 40);
-  background: none;
-  margin-left: 15px;
-  width: 130%;
-  font-weight: 700;
+  height: 30px;
+  width: 300px;
   font-size: 16px;
-}
-
-.action-btn {
-  display: flex;
-  gap: 10px;
-  width: 60px;
-  height: 25px;
+  font-weight: 600;
+  padding-left: 10px;
 }
