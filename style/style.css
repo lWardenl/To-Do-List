@@ -1,11 +1,4 @@
-header {
-  text-align: center;
-  width: 100%;
-}
 /* Task input Section */
-h1 {
-  margin: 50px 0px;
-}
 .task-input-section {
   display: flex;
   justify-content: center;
