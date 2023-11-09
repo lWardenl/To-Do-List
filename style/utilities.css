@@ -19,6 +19,7 @@ h1 {
 
 h2 {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 ul {
@@ -29,13 +30,10 @@ body {
   background-color: #21d4fd;
   background-image: linear-gradient(180deg, #8021fd 0%, #b721ff 100%);
   background-repeat: no-repeat;
-  background-attachment: fixed;
   display: flex;
+  height: 100vh;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  color: rgb(28, 28, 28);
 }
 
 button {
