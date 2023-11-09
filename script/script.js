@@ -1,6 +1,9 @@
 const todoContainer = document.getElementById("list");
 const addTaskBtn = document.getElementById("add-task");
 const userInput = document.getElementById("task-input");
+
+let taskList = [];
+
 //Adding a task logic
 addTaskBtn.addEventListener("click", CreateTask);
 userInput.addEventListener("keypress", function (event) {
@@ -16,7 +19,10 @@ function CreateTask() {
   // Creating the item div as a child to todo-list div
   const newTaskContainer = document.createElement("div");
   newTaskContainer.classList.add("item");
+  newTaskContainer.classList.add("draggable");
   newTaskContainer.draggable = true;
+  taskList.push(newTaskContainer);
+  console.log(taskList);
   todoContainer.appendChild(newTaskContainer);
 
   // Creating checkbox element with it's attributes
@@ -76,7 +82,10 @@ function CreateTask() {
 
   // Delete button logic
   deleteBtn.addEventListener("click", function () {
+    const removedIndex = taskList.indexOf(newTaskContainer);
+    taskList.splice(removedIndex, 1);
     newTaskContainer.remove();
+    console.log(taskList);
   });
 
   userInput.value = "";
