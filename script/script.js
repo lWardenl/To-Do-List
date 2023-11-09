@@ -1,7 +1,7 @@
 const todoContainer = document.getElementById("list");
 const addTaskBtn = document.getElementById("add-task");
 const userInput = document.getElementById("task-input");
-let todoList = [];
+//Adding a task logic
 addTaskBtn.addEventListener("click", CreateTask);
 userInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") CreateTask();
@@ -16,12 +16,14 @@ function CreateTask() {
   // Creating the item div as a child to todo-list div
   const newTaskContainer = document.createElement("div");
   newTaskContainer.classList.add("item");
+  newTaskContainer.draggable = true;
   todoContainer.appendChild(newTaskContainer);
 
   // Creating checkbox element with it's attributes
   const checkBox = document.createElement("input");
   checkBox.type = "checkbox";
   newTaskContainer.appendChild(checkBox);
+
   // Checkbox logic
   checkBox.addEventListener("change", function () {
     if (checkBox.checked == true) {
@@ -43,8 +45,10 @@ function CreateTask() {
 
   //Task edit logic
   taskTextField.addEventListener("blur", function () {
+    if (taskTextField.value == "") newTaskContainer.remove();
     taskTextField.readOnly = true;
   });
+
   // Creating div that holds the buttons
   const btnContainer = document.createElement("div");
   btnContainer.classList.add("action-btn");
@@ -56,9 +60,11 @@ function CreateTask() {
   editBtn.innerHTML =
     '<img src="./assets/images/pencil.png" alt="edit pencil" />';
   btnContainer.appendChild(editBtn);
-  //Event button logic
+
+  //Edit button logic
   editBtn.addEventListener("click", function () {
     taskTextField.readOnly = false;
+    taskTextField.focus();
   });
 
   // Creating delete button
@@ -67,6 +73,7 @@ function CreateTask() {
   deleteBtn.innerHTML =
     '<img src="./assets/images/trash.png" alt="delete trash" />';
   btnContainer.appendChild(deleteBtn);
+
   // Delete button logic
   deleteBtn.addEventListener("click", function () {
     newTaskContainer.remove();
