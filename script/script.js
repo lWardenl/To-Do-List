@@ -1,7 +1,6 @@
 const todoContainer = document.getElementById("list");
 const addTaskBtn = document.getElementById("add-task");
 const userInput = document.getElementById("task-input");
-
 let todoList = [];
 addTaskBtn.addEventListener("click", CreateTask);
 userInput.addEventListener("keypress", function (event) {
@@ -23,6 +22,16 @@ function CreateTask() {
   const checkBox = document.createElement("input");
   checkBox.type = "checkbox";
   newTaskContainer.appendChild(checkBox);
+  // Checkbox logic
+  checkBox.addEventListener("change", function () {
+    if (checkBox.checked == true) {
+      taskTextField.classList.add("completed");
+      taskTextField.classList.remove("task-text");
+    } else {
+      taskTextField.classList.add("task-text");
+      taskTextField.classList.remove("completed");
+    }
+  });
 
   // Creating the task text input element
   const taskTextField = document.createElement("input");

@@ -38,9 +38,8 @@
   gap: 50px;
   margin-bottom: 10px;
 }
-
-.task-text {
-  background: none;
+.task-text,
+.completed {
   border: 2px solid white;
   border-radius: 5px;
   height: 30px;
@@ -49,6 +48,14 @@
   font-weight: 600;
   margin-right: 16px;
   color: rgb(23, 23, 23);
+}
+.task-text {
+  background: none;
+}
+
+.completed {
+  background: rgb(0, 220, 0);
+  text-decoration: line-through;
 }
 
 .edit,
