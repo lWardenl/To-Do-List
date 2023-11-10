@@ -100,7 +100,7 @@ function CreateTask() {
     draggable.addEventListener("dragstart", function () {
       currentDraggable = this;
     });
-    draggable.addEventListener("dragennd", () => {
+    draggable.addEventListener("dragennd", function () {
       currentDraggable = null;
     });
     draggable.addEventListener("dragover", function (event) {
