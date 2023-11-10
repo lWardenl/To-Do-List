@@ -15,7 +15,6 @@ function CreateTask() {
     alert("Please write your task before!");
     return;
   }
-  console.log(userInput.value);
 
   // Creating the item div as a child to todo-list div
   const newTaskContainer = document.createElement("div");
@@ -23,7 +22,6 @@ function CreateTask() {
   newTaskContainer.classList.add("draggable");
   newTaskContainer.draggable = true;
   taskList.push(newTaskContainer);
-  console.log(taskList);
   todoContainer.appendChild(newTaskContainer);
 
   // Creating checkbox element with it's attributes
@@ -89,7 +87,6 @@ function CreateTask() {
     const removedIndex = taskList.indexOf(newTaskContainer);
     taskList.splice(removedIndex, 1);
     newTaskContainer.remove();
-    console.log(taskList);
   });
 
   userInput.value = "";
@@ -119,11 +116,10 @@ function CreateTask() {
     });
     draggable.addEventListener("drop", function () {
       if (currentDraggable && currentHovered) {
-        const temp = currentHovered.innerHTML;
-        currentHovered.innerHTML = currentDraggable.innerHTML;
-        currentDraggable.innerHTML = temp;
-        console.log(currentHovered.innerHTML);
-        console.log(currentDraggable.innerHTML);
+        const temp = currentHovered.querySelector(".task-text").value;
+        currentHovered.querySelector(".task-text").value =
+          currentDraggable.querySelector(".task-text").value;
+        currentDraggable.querySelector(".task-text").value = temp;
 
         currentHovered.classList.remove("hovered");
         currentDraggable = null;
