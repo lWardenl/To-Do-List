@@ -16,6 +16,7 @@ function CreateTask() {
     return;
   }
   console.log(userInput.value);
+
   // Creating the item div as a child to todo-list div
   const newTaskContainer = document.createElement("div");
   newTaskContainer.classList.add("item");
@@ -54,6 +55,9 @@ function CreateTask() {
     if (taskTextField.value == "") newTaskContainer.remove();
     taskTextField.readOnly = true;
   });
+  taskTextField.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") taskTextField.blur();
+  });
 
   // Creating div that holds the buttons
   const btnContainer = document.createElement("div");
@@ -89,4 +93,42 @@ function CreateTask() {
   });
 
   userInput.value = "";
+
+  // Drag and drop feature
+  const draggables = document.querySelectorAll(".draggable");
+  let currentDraggable = null;
+  let currentHovered = null;
+
+  draggables.forEach((draggable) => {
+    draggable.addEventListener("dragstart", function () {
+      currentDraggable = this;
+    });
+    draggable.addEventListener("dragennd", () => {
+      currentDraggable = null;
+    });
+    draggable.addEventListener("dragover", function (event) {
+      event.preventDefault();
+      if (currentDraggable && currentDraggable !== this) {
+        if (!this.classList.contains("hovered")) this.classList.add("hovered");
+        currentHovered = this;
+      }
+    });
+    draggable.addEventListener("dragleave", function () {
+      this.classList.remove("hovered");
+      currentHovered = null;
+    });
+    draggable.addEventListener("drop", function () {
+      if (currentDraggable && currentHovered) {
+        const temp = currentHovered.innerHTML;
+        currentHovered.innerHTML = currentDraggable.innerHTML;
+        currentDraggable.innerHTML = temp;
+        console.log(currentHovered.innerHTML);
+        console.log(currentDraggable.innerHTML);
+
+        currentHovered.classList.remove("hovered");
+        currentDraggable = null;
+        currentHovered = null;
+      }
+    });
+  });
 }
