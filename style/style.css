@@ -70,4 +70,5 @@
 
 .hovered {
   background: red;
+  opacity: 50%;
 }
